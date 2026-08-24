@@ -1,1 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal academic website of a PhD researcher in optics and photonics." />
+  <title>Your Name | PhD Researcher in Optics</title>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2e;
+      --card: rgba(15, 31, 52, 0.78);
+      --text: #eef6ff;
+      --muted: #a8b9cc;
+      --accent: #63d8ff;
+      --accent-2: #9b8cff;
+      --border: rgba(255,255,255,0.10);
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(99,216,255,.13), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(155,140,255,.12), transparent 25%),
+        var(--bg);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(7,17,31,.72);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    section { padding: 95px 0; }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .78rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 7vw, 5.7rem);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      margin-bottom: 24px;
+    }
+
+    .gradient {
+      background: linear-gradient(100deg, var(--accent), #ffffff, var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 19px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #03101a;
+      font-weight: 800;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .orb {
+      width: min(340px, 80vw);
+      aspect-ratio: 1;
+      margin: auto;
+      border-radius: 50%;
+      position: relative;
+      background:
+        radial-gradient(circle at 40% 35%, #fff 0 2%, transparent 3%),
+        radial-gradient(circle at 60% 55%, rgba(99,216,255,.7), transparent 28%),
+        radial-gradient(circle at 50% 50%, rgba(155,140,255,.35), transparent 55%);
+      box-shadow:
+        0 0 70px rgba(99,216,255,.22),
+        inset 0 0 80px rgba(99,216,255,.13);
+      border: 1px solid rgba(99,216,255,.22);
+    }
+
+    .orb::before,
+    .orb::after {
+      content: "";
+      position: absolute;
+      inset: 13%;
+      border: 1px solid rgba(99,216,255,.25);
+      border-radius: 50%;
+      transform: rotate(35deg) scaleX(1.45);
+    }
+
+    .orb::after {
+      transform: rotate(-35deg) scaleX(1.45);
+      border-color: rgba(155,140,255,.25);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -.035em;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 38px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+    }
+
+    .card h3 { margin-bottom: 9px; }
+    .card p { color: var(--muted); font-size: .96rem; }
+
+    .tag {
+      display: inline-block;
+      color: var(--accent);
+      background: rgba(99,216,255,.08);
+      border: 1px solid rgba(99,216,255,.18);
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: .75rem;
+      margin: 0 5px 7px 0;
+    }
+
+    .timeline {
+      border-left: 1px solid var(--border);
+      padding-left: 28px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 34px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      left: -34px;
+      top: 9px;
+      box-shadow: 0 0 15px rgba(99,216,255,.6);
+    }
+
+    .date {
+      color: var(--accent);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .research-highlight {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .contact {
+      text-align: center;
+      padding-bottom: 120px;
+    }
+
+    .contact-box {
+      max-width: 760px;
+      margin: 30px auto 0;
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(99,216,255,.07), rgba(155,140,255,.07));
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid,
+      .research-highlight,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { min-height: auto; padding: 80px 0; }
+      .orb { width: 260px; }
+      .nav-links { gap: 10px; font-size: .82rem; }
+    }
+
+    @media (max-width: 520px) {
+      .nav-inner { align-items: flex-start; padding: 16px 0; }
+      .nav-links { flex-wrap: wrap; justify-content: flex-end; }
+      section { padding: 70px 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="#home">OPTICS / RESEARCH</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="home">
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">PhD Researcher · Optics & Photonics</div>
+          <h1>
+            Exploring light,
+            <span class="gradient">lasers & photonics.</span>
+          </h1>
+          <p>
+            I am a PhD researcher working in optics and photonics, with a particular
+            interest in lasers, nonlinear optics, broadband light sources and emerging
+            optical technologies.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="#research">Explore my research</a>
+            <a class="btn btn-secondary" href="https://scholar.google.com/" target="_blank" rel="noopener">
+              Google Scholar ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="orb" aria-label="Abstract optical light visualization"></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="eyebrow">01 · About</div>
+        <h2 class="section-title">A physicist studying the behavior of light.</h2>
+        <p class="section-intro">
+          My research sits at the intersection of fundamental optics and photonic
+          applications. I am interested in understanding how light can be generated,
+          manipulated and controlled across different spectral and temporal regimes.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Education</h3>
+            <p>PhD in Physics · Your University</p>
+            <p>Specialization: Optics & Photonics</p>
+          </article>
+
+          <article class="card">
+            <h3>Research</h3>
+            <p>Laser physics, nonlinear optics, broadband sources and optical materials.</p>
+          </article>
+
+          <article class="card">
+            <h3>Based at</h3>
+            <p>Your Department · Your University · Your City, Country</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="eyebrow">02 · Research</div>
+        <h2 class="section-title">Current research directions</h2>
+        <p class="section-intro">
+          Replace these topics with the exact areas of your PhD project.
+        </p>
+
+        <div class="research-highlight">
+          <article class="card">
+            <span class="tag">Laser Physics</span>
+            <span class="tag">Optics</span>
+            <h3>White & Broadband Lasers</h3>
+            <p>
+              Investigating approaches for generating broadband or white laser
+              emission, including nonlinear optical processes, multi-wavelength
+              sources and novel photonic architectures.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Nonlinear Optics</span>
+            <span class="tag">Ultrafast</span>
+            <h3>Light–Matter Interaction</h3>
+            <p>
+              Studying nonlinear frequency conversion, ultrafast optical phenomena,
+              spectral broadening and the interaction of intense light with matter.
+            </p>
+          </article>
+        </div>
+
+        <div class="grid" style="margin-top:20px;">
+          <article class="card">
+            <h3>Experimental Optics</h3>
+            <p>
+              Optical alignment, spectroscopy, laser characterization, detectors,
+              imaging and precision measurements.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Photonic Materials</h3>
+            <p>
+              Exploring materials and structures that enable new ways to generate,
+              guide and manipulate light.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Future Applications</h3>
+            <p>
+              High-performance spectroscopy, imaging, communications, sensing and
+              next-generation light sources.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="eyebrow">03 · Academic Journey</div>
+        <h2 class="section-title">Research & publications</h2>
+        <p class="section-intro">
+          Add your publications, conference presentations, awards and research
+          milestones here.
+        </p>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="date">2025 — Present</div>
+            <h3>PhD Researcher in Optics</h3>
+            <p>
+              Your University · Your research group. Working on
+              <strong>white/broadband lasers and nonlinear optics</strong>.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="date">Publication · 2026</div>
+            <h3>Your Paper Title</h3>
+            <p>
+              Author list, journal name, volume and DOI.
+              <a href="#" style="color:var(--accent)">Read paper ↗</a>
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="date">Conference</div>
+            <h3>Your Conference Presentation</h3>
+            <p>
+              Add the conference name, location and a short description of your work.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="eyebrow">04 · Contact</div>
+        <h2 class="section-title">Let's talk about optics.</h2>
+
+        <div class="contact-box">
+          <p style="color:var(--muted); margin-bottom:20px;">
+            I am interested in collaborations, scientific discussions, conferences
+            and opportunities in optics and photonics.
+          </p>
+
+          <div class="buttons" style="justify-content:center;">
+            <a class="btn btn-primary" href="mailto:your.email@university.edu">
+              your.email@university.edu
+            </a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+              LinkedIn ↗
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/" target="_blank" rel="noopener">
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Your Name · PhD Researcher in Optics & Photonics
+    </div>
+  </footer>
+
+</body>
+</html>
 
