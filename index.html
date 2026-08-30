@@ -1,10 +1,16 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Personal academic website of a PhD researcher in optics and photonics." />
-  <title> Bhupal Singh | PhD Researcher in Optics</title>
+
+  <meta
+    name="description"
+    content="Personal academic website of Bhupal Singh, a PhD researcher in optics and photonics."
+  />
+
+  <title>Bhupal Singh | PhD Researcher in Optics</title>
 
   <style>
     :root {
@@ -15,38 +21,62 @@
       --muted: #a8b9cc;
       --accent: #63d8ff;
       --accent-2: #9b8cff;
-      --border: rgba(255,255,255,0.10);
+      --border: rgba(255, 255, 255, 0.10);
       --max: 1100px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-                   "Segoe UI", sans-serif;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 15% 10%, rgba(99,216,255,.13), transparent 28%),
-        radial-gradient(circle at 85% 20%, rgba(155,140,255,.12), transparent 25%),
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(99, 216, 255, 0.13),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(155, 140, 255, 0.12),
+          transparent 25%
+        ),
         var(--bg);
       line-height: 1.7;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .container {
       width: min(92%, var(--max));
       margin: auto;
     }
 
+    /* Navigation */
     nav {
       position: sticky;
       top: 0;
       z-index: 20;
       backdrop-filter: blur(14px);
-      background: rgba(7,17,31,.72);
+      background: rgba(7, 17, 31, 0.72);
       border-bottom: 1px solid var(--border);
     }
 
@@ -60,7 +90,7 @@
 
     .logo {
       font-weight: 800;
-      letter-spacing: .04em;
+      letter-spacing: 0.04em;
       color: var(--accent);
     }
 
@@ -68,14 +98,20 @@
       display: flex;
       gap: 22px;
       list-style: none;
-      font-size: .95rem;
+      font-size: 0.95rem;
       color: var(--muted);
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
-    section { padding: 95px 0; }
+    /* General sections */
+    section {
+      padding: 95px 0;
+    }
 
+    /* Hero */
     .hero {
       min-height: 88vh;
       display: grid;
@@ -86,7 +122,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 60px;
       align-items: center;
     }
@@ -94,8 +130,8 @@
     .eyebrow {
       color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: .18em;
-      font-size: .78rem;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
       font-weight: 700;
       margin-bottom: 16px;
     }
@@ -103,12 +139,17 @@
     h1 {
       font-size: clamp(2.7rem, 7vw, 5.7rem);
       line-height: 1.02;
-      letter-spacing: -.055em;
+      letter-spacing: -0.055em;
       margin-bottom: 24px;
     }
 
     .gradient {
-      background: linear-gradient(100deg, var(--accent), #ffffff, var(--accent-2));
+      background: linear-gradient(
+        100deg,
+        var(--accent),
+        #ffffff,
+        var(--accent-2)
+      );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -134,7 +175,7 @@
       padding: 12px 19px;
       border-radius: 10px;
       border: 1px solid var(--border);
-      transition: .2s ease;
+      transition: 0.2s ease;
     }
 
     .btn-primary {
@@ -148,40 +189,28 @@
       transform: translateY(-2px);
     }
 
-    .orb {
-      width: min(340px, 80vw);
+    /* Profile photo */
+    .profile-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-photo img {
+      width: min(320px, 80vw);
       aspect-ratio: 1;
-      margin: auto;
+      object-fit: cover;
       border-radius: 50%;
-      position: relative;
-      background:
-        radial-gradient(circle at 40% 35%, #fff 0 2%, transparent 3%),
-        radial-gradient(circle at 60% 55%, rgba(99,216,255,.7), transparent 28%),
-        radial-gradient(circle at 50% 50%, rgba(155,140,255,.35), transparent 55%);
+      border: 2px solid rgba(99, 216, 255, 0.35);
       box-shadow:
-        0 0 70px rgba(99,216,255,.22),
-        inset 0 0 80px rgba(99,216,255,.13);
-      border: 1px solid rgba(99,216,255,.22);
+        0 0 50px rgba(99, 216, 255, 0.18),
+        0 0 100px rgba(155, 140, 255, 0.12);
     }
 
-    .orb::before,
-    .orb::after {
-      content: "";
-      position: absolute;
-      inset: 13%;
-      border: 1px solid rgba(99,216,255,.25);
-      border-radius: 50%;
-      transform: rotate(35deg) scaleX(1.45);
-    }
-
-    .orb::after {
-      transform: rotate(-35deg) scaleX(1.45);
-      border-color: rgba(155,140,255,.25);
-    }
-
+    /* Section headings */
     .section-title {
       font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -.035em;
+      letter-spacing: -0.035em;
       margin-bottom: 12px;
     }
 
@@ -191,6 +220,7 @@
       margin-bottom: 38px;
     }
 
+    /* Cards */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -202,23 +232,31 @@
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 25px;
-      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
     }
 
-    .card h3 { margin-bottom: 9px; }
-    .card p { color: var(--muted); font-size: .96rem; }
+    .card h3 {
+      margin-bottom: 9px;
+    }
 
+    .card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    /* Tags */
     .tag {
       display: inline-block;
       color: var(--accent);
-      background: rgba(99,216,255,.08);
-      border: 1px solid rgba(99,216,255,.18);
+      background: rgba(99, 216, 255, 0.08);
+      border: 1px solid rgba(99, 216, 255, 0.18);
       border-radius: 999px;
       padding: 4px 9px;
-      font-size: .75rem;
+      font-size: 0.75rem;
       margin: 0 5px 7px 0;
     }
 
+    /* Timeline */
     .timeline {
       border-left: 1px solid var(--border);
       padding-left: 28px;
@@ -238,23 +276,25 @@
       background: var(--accent);
       left: -34px;
       top: 9px;
-      box-shadow: 0 0 15px rgba(99,216,255,.6);
+      box-shadow: 0 0 15px rgba(99, 216, 255, 0.6);
     }
 
     .date {
       color: var(--accent);
-      font-size: .82rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: .08em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
+    /* Research */
     .research-highlight {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
+    /* Contact */
     .contact {
       text-align: center;
       padding-bottom: 120px;
@@ -266,17 +306,23 @@
       padding: 35px;
       border: 1px solid var(--border);
       border-radius: 22px;
-      background: linear-gradient(135deg, rgba(99,216,255,.07), rgba(155,140,255,.07));
+      background:
+        linear-gradient(
+          135deg,
+          rgba(99, 216, 255, 0.07),
+          rgba(155, 140, 255, 0.07)
+        );
     }
 
     footer {
       border-top: 1px solid var(--border);
       padding: 25px 0;
       color: var(--muted);
-      font-size: .85rem;
+      font-size: 0.85rem;
       text-align: center;
     }
 
+    /* Responsive */
     @media (max-width: 800px) {
       .hero-grid,
       .research-highlight,
@@ -284,75 +330,136 @@
         grid-template-columns: 1fr;
       }
 
-      .hero { min-height: auto; padding: 80px 0; }
-      .orb { width: 260px; }
-      .nav-links { gap: 10px; font-size: .82rem; }
+      .hero {
+        min-height: auto;
+        padding: 80px 0;
+      }
+
+      .profile-photo img {
+        width: 260px;
+      }
+
+      .nav-links {
+        gap: 10px;
+        font-size: 0.82rem;
+      }
     }
 
     @media (max-width: 520px) {
-      .nav-inner { align-items: flex-start; padding: 16px 0; }
-      .nav-links { flex-wrap: wrap; justify-content: flex-end; }
-      section { padding: 70px 0; }
+      .nav-inner {
+        align-items: flex-start;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      section {
+        padding: 70px 0;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- Navigation -->
   <nav>
     <div class="container nav-inner">
-      <a class="logo" href="#home">OPTICS / RESEARCH</a>
+
+      <a class="logo" href="#home">
+        OPTICS / RESEARCH
+      </a>
+
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
+        <li><a href="#publications">Academic</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+
     </div>
   </nav>
 
+
   <main id="home">
 
+    <!-- Hero -->
     <section class="hero">
       <div class="container hero-grid">
+
         <div>
-          <div class="eyebrow">PhD Researcher · Optics & Photonics</div>
+          <div class="eyebrow">
+            PhD Researcher · Optics & Photonics
+          </div>
+
           <h1>
             Exploring light,
             <span class="gradient">lasers & photonics.</span>
           </h1>
+
           <p>
-            I am a PhD researcher working in optics and photonics, with a particular
-            interest in lasers, radiation pressure, interferometry, light matter interaction and emerging
-            optical technologies.
+            I am a PhD researcher working in optics and photonics, with a
+            particular interest in lasers, radiation pressure, interferometry,
+            light-matter interaction, and emerging optical technologies.
           </p>
 
           <div class="buttons">
-            <a class="btn btn-primary" href="#research">Explore my research</a>
-            <a class="btn btn-secondary" href="https://scholar.google.com/citations?user=-9GeOxsAAAAJ&hl=en" target="_blank" rel="noopener">
+
+            <a class="btn btn-primary" href="#research">
+              Explore my research
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="https://scholar.google.com/citations?user=-9GeOxsAAAAJ&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Google Scholar ↗
             </a>
+
           </div>
         </div>
 
+
+        <!-- Profile photo -->
         <div class="profile-photo">
-    <img src="images/profile.jpg" alt="Bhupal Singh - PhD Researcher in Optics">
-</div>
+          <img
+            src="images/profile.jpg"
+            alt="Bhupal Singh - PhD Researcher in Optics"
+          />
+        </div>
+
       </div>
     </section>
 
+
+    <!-- About -->
     <section id="about">
       <div class="container">
+
         <div class="eyebrow">01 · About</div>
-        <h2 class="section-title">A physicist studying the behavior and application of light.</h2>
+
+        <h2 class="section-title">
+          A physicist studying the behavior and application of light.
+        </h2>
+
         <p class="section-intro">
-          My research sits at the intersection of fundamental optics and photonic
-          applications. I am interested in understanding how light imparts radiation pressure at the very fundamental level, and how can we 
-          apply this to the emerging optical technologies. Along this I'm also intersted in very sensitive measurement technique, called interferometry
-          and applying this technique to develop very sinsitive instruments.
+          My research sits at the intersection of fundamental optics and
+          photonic applications. I am interested in understanding how light
+          imparts radiation pressure at the fundamental level and how this can
+          be applied to emerging optical technologies. I am also interested
+          in highly sensitive measurement techniques, particularly
+          interferometry, and in applying these techniques to develop
+          highly sensitive instruments.
         </p>
 
+
         <div class="grid">
+
           <article class="card">
             <h3>Education</h3>
             <p>PhD in Physics · IISER Mohali</p>
@@ -361,177 +468,337 @@
 
           <article class="card">
             <h3>Research</h3>
-            <p>Laser physics, nonlinear optics, broadband sources and optical materials.</p>
+            <p>
+              Laser physics, radiation pressure, interferometry,
+              light-matter interaction, and precision measurements.
+            </p>
           </article>
 
           <article class="card">
             <h3>Based at</h3>
-            <p>Departmental of Physical Science · IISER Mohali · Punjab, India</p>
+            <p>
+              Department of Physical Sciences · IISER Mohali · Punjab, India
+            </p>
           </article>
+
         </div>
+
       </div>
     </section>
 
+
+    <!-- Research -->
     <section id="research">
       <div class="container">
-        <div class="eyebrow">02 · Research</div>
-        <h2 class="section-title">Interferometry and Light matter interaction</h2>
-        <p class="section-intro">
 
+        <div class="eyebrow">02 · Research</div>
+
+        <h2 class="section-title">
+          Interferometry and Light-Matter Interaction
+        </h2>
+
+        <p class="section-intro">
+          My research focuses on understanding light-matter interaction,
+          radiation pressure, and highly sensitive optical measurements.
         </p>
 
+
         <div class="research-highlight">
+
           <article class="card">
+
             <span class="tag">Laser Physics</span>
-            <span class="tag">radiation pressure</span>
-            <h3>Light matter interaction</h3>
+            <span class="tag">Radiation Pressure</span>
+
+            <h3>Light-Matter Interaction</h3>
+
             <p>
-              Investigating approaches for measurement of radiation pressure using a sensitive interferometry and Light matter interaction.
+              Investigating approaches for measuring radiation pressure using
+              sensitive interferometry and studying light-matter interaction.
             </p>
+
           </article>
 
+
           <article class="card">
-            <span class="tag">Sensitive measurement</span>
+
+            <span class="tag">Sensitive Measurement</span>
             <span class="tag">Interferometry</span>
-            <h3>Liquid drop interferometer</h3>
+
+            <h3>Liquid Drop Interferometer</h3>
+
             <p>
-              Studying the most sensitive length measurement technique 'interferometry' and application of interferometry in the liquid
-              deformation with the various external factors. Using these methods making a very sensitive sensors.
+              Studying interferometry as a highly sensitive length-measurement
+              technique and applying it to investigate liquid deformation under
+              various external factors. These methods can be used to develop
+              highly sensitive sensors.
             </p>
+
           </article>
+
         </div>
 
-        <div class="grid" style="margin-top:20px;">
+
+        <div class="grid" style="margin-top: 20px;">
+
           <article class="card">
+
             <h3>Experimental Optics</h3>
+
             <p>
-              Optical alignment, optical cavity, laser characterization, detectors,
-              imaging and precision measurements.
+              Optical alignment, optical cavities, laser characterization,
+              detectors, imaging, and precision measurements.
             </p>
+
           </article>
 
-          
 
           <article class="card">
+
             <h3>Future Applications</h3>
+
             <p>
-              High-precision measurement, imaging and
-              next-generation sensors.
+              High-precision measurement, imaging, and next-generation
+              optical sensors.
             </p>
+
           </article>
+
         </div>
+
       </div>
     </section>
 
+
+    <!-- Academic Background -->
     <section id="publications">
       <div class="container">
+
         <div class="eyebrow">03 · Academic Background</div>
-        <h2 class="section-title">Academic journey</h2>
+
+        <h2 class="section-title">
+          Academic journey
+        </h2>
+
         <p class="section-intro">
-          
+          My academic journey in physics, optics, and photonics.
         </p>
+
 
         <div class="timeline">
 
+          <!-- PhD -->
           <div class="timeline-item">
+
             <div class="date">2023 — Present</div>
-            <h3>PhD Researcher in Optics</h3>
+
+            <h3>
+              PhD Researcher in Optics
+            </h3>
+
             <p>
-              IISER Mohali · Attosecond laser lab. Working on
-              <strong>Interferometry and light matter interaction</strong>.
+              IISER Mohali · Attosecond Laser Lab. Working on
+              <strong>
+                Interferometry and Light-Matter Interaction
+              </strong>.
             </p>
+
           </div>
 
-          div class="timeline-item">
+
+          <!-- MSc -->
+          <div class="timeline-item">
+
             <div class="date">2019 — 2021</div>
-            <h3>Master of science</h3>
+
+            <h3>
+              Master of Science
+            </h3>
+
             <p>
-              Kumaun university nainital · Department of physics. Working on
-              <strong>Spatial light modulator</strong>.
+              Kumaun University, Nainital · Department of Physics.
+              Worked on
+              <strong>
+                Spatial Light Modulator
+              </strong>.
             </p>
+
           </div>
 
 
-        div class="timeline-item">
+          <!-- BSc -->
+          <div class="timeline-item">
+
             <div class="date">2016 — 2019</div>
-            <h3>Bacholar of science</h3>
+
+            <h3>
+              Bachelor of Science
+            </h3>
+
             <p>
-              Kumaun university nainital · Physics, Chemistry and Mathematics.
+              Kumaun University, Nainital · Physics, Chemistry and Mathematics.
             </p>
+
           </div>
 
-       div class="timeline-item">
+
+          <!-- Intermediate -->
+          <div class="timeline-item">
+
             <div class="date">2016</div>
-            <h3>Intermediat</h3>
+
+            <h3>
+              Intermediate
+            </h3>
+
             <p>
-              Arya Inter College Deghat, Almora·
+              Arya Inter College, Deghat, Almora.
             </p>
+
           </div>
 
-      div class="timeline-item">
+
+          <!-- High School -->
+          <div class="timeline-item">
+
             <div class="date">2014</div>
-            <h3>Highschool</h3>
+
+            <h3>
+              High School
+            </h3>
+
             <p>
-              Arya Inter College Deghat, Almora·
+              Arya Inter College, Deghat, Almora.
             </p>
+
           </div>
 
-      
+
+          <!-- Publication -->
           <div class="timeline-item">
-            <div class="date">Publication · 2025</div>
-            <h3>Optically excited nano-mechanical modes of a droplet</h3>
+
+            <div class="date">
+              Publication · 2025
+            </div>
+
+            <h3>
+              Optically excited nano-mechanical modes of a droplet
+            </h3>
+
             <p>
-              B Singh et al., Optics letter, volume 51, No. 1, 10.1364/OL.578999.
-              <a href="https://doi.org/10.1364/OL.578999" style="color:var(--accent)">Read paper ↗</a>
+              B. Singh et al., Optics Letters, Volume 51, No. 1,
+              DOI: 10.1364/OL.578999.
+
+              <a
+                href="https://doi.org/10.1364/OL.578999"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color: var(--accent)"
+              >
+                Read paper ↗
+              </a>
             </p>
+
           </div>
 
+
+          <!-- Conference -->
           <div class="timeline-item">
-            <div class="date">Conference</div>
-            <h3>Optically excited nano-mechanical modes of a droplet</h3>
+
+            <div class="date">
+              Conference · 2026
+            </div>
+
+            <h3>
+              Optically excited nano-mechanical modes of a droplet
+            </h3>
+
             <p>
-              PHYCON 2026, IIT Ropar, Punjab, Best oral presentation award.
+              PHYCON 2026, IIT Ropar, Punjab · Best Oral Presentation Award.
             </p>
+
           </div>
 
         </div>
+
       </div>
     </section>
 
+
+    <!-- Contact -->
     <section id="contact" class="contact">
+
       <div class="container">
-        <div class="eyebrow">04 · Contact</div>
-        <h2 class="section-title">Let's talk about optics.</h2>
+
+        <div class="eyebrow">
+          04 · Contact
+        </div>
+
+        <h2 class="section-title">
+          Let's talk about optics.
+        </h2>
+
 
         <div class="contact-box">
-          <p style="color:var(--muted); margin-bottom:20px;">
-            I am interested in collaborations, scientific discussions, conferences
-            and opportunities in optics and photonics.
+
+          <p style="color: var(--muted); margin-bottom: 20px;">
+            I am interested in collaborations, scientific discussions,
+            conferences, and opportunities in optics and photonics.
           </p>
 
-          <div class="buttons" style="justify-content:center;">
-            <a class="btn btn-primary" href="mailto:your.email@university.edu">
+
+          <div
+            class="buttons"
+            style="justify-content: center;"
+          >
+
+            <a
+              class="btn btn-primary"
+              href="mailto:bhupalsinghbangari@gmail.com"
+            >
               bhupalsinghbangari@gmail.com
             </a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/bhupal-singh-80999a217/" target="_blank" rel="noopener">
+
+
+            <a
+              class="btn btn-secondary"
+              href="https://www.linkedin.com/in/bhupal-singh-80999a217/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               LinkedIn ↗
             </a>
-            <a class="btn btn-secondary" href="https://github.com/Bhupalsinghbangari" target="_blank" rel="noopener">
+
+
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/Bhupalsinghbangari"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub ↗
             </a>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
   </main>
 
+
+  <!-- Footer -->
   <footer>
+
     <div class="container">
       © 2026 Bhupal Singh · PhD Researcher in Optics & Photonics
     </div>
+
   </footer>
 
 </body>
 </html>
-
+```
