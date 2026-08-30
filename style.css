@@ -17,7 +17,7 @@ h1 {
   width: min(320px, 80vw);
   height: 320px;
   object-fit: cover;
-  object-position: center center;
+  object-position: center 35%;
   border-radius: 50%;
   border: 2px solid rgba(99, 216, 255, 0.35);
   box-shadow:
